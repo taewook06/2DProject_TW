@@ -4,55 +4,54 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    Vector3 position;
+    Vector3 Pos;
     public float Speed = 3;
     GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
-        position = transform.position;
+        Pos = transform.position;
         player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if((Input.GetKey(KeyCode.A)) || (Input.GetKey(KeyCode.LeftArrow)))
+        if ((Input.GetKey(KeyCode.A)) || (Input.GetKey(KeyCode.LeftArrow)))
         {
-            position.x -= Speed * Time.deltaTime;
-            transform.rotation = Quaternion.Euler(0, 0, 90);          
+            Pos.x -= Speed * Time.deltaTime;
         }
         if ((Input.GetKey(KeyCode.D)) || (Input.GetKey(KeyCode.RightArrow)))
         {
-            position.x += Speed * Time.deltaTime;
-            transform.rotation = Quaternion.Euler(0, 0, -90);
+            Pos.x += Speed * Time.deltaTime;
 
         }
         if ((Input.GetKey(KeyCode.W)) || (Input.GetKey(KeyCode.UpArrow)))
         {
-            position.y += Speed * Time.deltaTime;
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+            Pos.y += Speed * Time.deltaTime;
 
         }
         if ((Input.GetKey(KeyCode.S)) || (Input.GetKey(KeyCode.DownArrow)))
         {
-            position.y -= Speed * Time.deltaTime;
-            transform.rotation = Quaternion.Euler(0, 0, 180);
-            //slerp
+            Pos.y -= Speed * Time.deltaTime;
         }
 
+        if (Pos != transform.position)
+        {
+            // get the angle
 
-        transform.position = position;
+            Vector3 norTar = (Pos - transform.position).normalized;
+            float angle = Mathf.Atan2(norTar.y, norTar.x) * Mathf.Rad2Deg;
 
+            // rotate to angle
+
+            Quaternion rotation = new Quaternion();
+            rotation.eulerAngles = new Vector3(0, 0, angle - 90);
+            transform.rotation = rotation;
+        }
+
+        transform.position = Pos;
     }
-    void FixedUpdate()
-    {
 
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Vector3.forward), 0.2f);
-
-        transform.position -= transform.forward * Time.deltaTime * Speed;
-
-
-    }
 }
