@@ -2,23 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletMake : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
-    public GameObject BulletPrefab;
-  
+    public float Speed = -0.01f;
+
     // Start is called before the first frame update
     void Start()
     {
-     
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        gameObject.transform.Translate(Vector3.down * Speed);
         if (Input.GetMouseButtonDown(0))
         {
-            Instantiate(BulletPrefab,transform.position, transform.rotation);   //(≈∫∏∑¿Ã,¥Î∆˜≤ø∏Æø°, ≤ø∏ÆπÊ«‚¿∏∑Œ)
-       
+            Speed -= 0.002f;
         }
-    }
+    }   
 }
