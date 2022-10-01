@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class BulletMake : MonoBehaviour
 {
-    public GameObject BulletPrefab;   
-
+    public GameObject BulletPrefab;
+  
     // Start is called before the first frame update
     void Start()
     {
-       
+     
     }
 
     // Update is called once per frame
@@ -17,7 +17,7 @@ public class BulletMake : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Instantiate(BulletPrefab, transform.position, transform.rotation);   //(藕阜捞,措器部府俊, 部府规氢栏肺)
+            Instantiate(BulletPrefab,transform.position, transform.rotation);   //(藕阜捞,措器部府俊, 部府规氢栏肺)
 
         }
     }
