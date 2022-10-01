@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Bullet : MonoBehaviour
 {
-    public float Speed = -0.01f;
+    public float Speed = -0.1f;
 
     // Start is called before the first frame update
     void Start()
@@ -18,20 +18,20 @@ public class Bullet : MonoBehaviour
     {
         if (GameObject.Find("Btn").GetComponent<Button>().IsStart == true)
         {
-            gameObject.transform.Translate(Vector3.down * Speed);
+            gameObject.transform.Translate(Vector3.down * Speed); //Speed값만큼 속도로 이동
             if (Input.GetMouseButtonDown(0))
             {
-                Speed -= 0.002f;
+                Speed -= 0.02f;       
             }
         }
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.tag == "Player") //닿으면 IsUpArrow를 true -> RyGenerator스크립트에 신호주기
+        if (collision.transform.tag == "Player") //탄막이 플레이어와 닿았을 시
         {
-            GameObject.Find("Btn").GetComponent<Button>().IsStart = false;
-            GameObject.Find("GameOver").GetComponent<Text>().text = "Game Over";
+          //  GameObject.Find("Btn").GetComponent<Button>().IsStart = false; 
+           // GameObject.Find("GameOver").GetComponent<Text>().text = "Game Over";
         }
     }
 }

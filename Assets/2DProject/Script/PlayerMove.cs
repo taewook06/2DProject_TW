@@ -8,14 +8,13 @@ public class PlayerMove : MonoBehaviour
     Vector3 Pos;
     public float Speed = 3;
     GameObject player;
-    GameObject spone;
-
+ 
     // Start is called before the first frame update
     void Start()
     {
         Pos = transform.position;
         player = GameObject.Find("Player");
-        spone = GameObject.Find("Spone");
+        
     }
 
     // Update is called once per frame
@@ -59,13 +58,4 @@ public class PlayerMove : MonoBehaviour
 
         transform.position = Pos;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.transform.tag == "Bullet") //닿으면 IsUpArrow를 true -> RyGenerator스크립트에 신호주기
-        {
-           
-        }
-    }
-
-
 }
