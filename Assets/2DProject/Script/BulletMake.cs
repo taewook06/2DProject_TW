@@ -7,6 +7,7 @@ public class BulletMake : MonoBehaviour
 {
     public GameObject BulletPrefab;
     public int Score = 0;
+    float BulletSpeed = 0.01f;
   
     // Start is called before the first frame update
     void Start()
@@ -21,18 +22,14 @@ public class BulletMake : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Instantiate(BulletPrefab, transform.position, transform.rotation);   //(≈∫∏∑¿Ã,¥Î∆˜≤ø∏Æø°, ≤ø∏ÆπÊ«‚¿∏∑Œ)
+                GameObject bullet = Instantiate(BulletPrefab, transform.position, transform.rotation);   //(≈∫∏∑¿Ã,¥Î∆˜≤ø∏Æø°, ≤ø∏ÆπÊ«‚¿∏∑Œ)
+                bullet.GetComponent<Bullet>().Speed = BulletSpeed;
+
+                BulletSpeed += 0.001f;
                 Score += 1;
                 GameObject.Find("Point").GetComponent<Text>().text = "Score: " + Score;
               
             }
-        }
-
-
-
-
-
-
-       
+        }       
     }
 }

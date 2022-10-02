@@ -6,56 +6,46 @@ using UnityEngine.UI;
 public class PlayerMove : MonoBehaviour
 {
     Vector3 Pos;
-    public float Speed = 3;
-    GameObject player;
- 
+    public float Speed = 0.01f;
+
+    Vector2 movement = new Vector2();
+
+    Rigidbody2D myRig;
+
     // Start is called before the first frame update
     void Start()
     {
+        myRig = GetComponent<Rigidbody2D>();
         Pos = transform.position;
-        player = GameObject.Find("Player");
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-       if (GameObject.Find("Btn").GetComponent<Button>().IsStart == true)
-       {
-            if ((Input.GetKey(KeyCode.A)) || (Input.GetKey(KeyCode.LeftArrow)))
-            {
-                Pos.x -= Speed * Time.deltaTime;
-            }
-            if ((Input.GetKey(KeyCode.D)) || (Input.GetKey(KeyCode.RightArrow)))
-            {
-                Pos.x += Speed * Time.deltaTime;
+        if (GameObject.Find("Btn").GetComponent<Button>().IsStart == true)
+        {
 
-            }
-            if ((Input.GetKey(KeyCode.W)) || (Input.GetKey(KeyCode.UpArrow)))
-            {
-                Pos.y += Speed * Time.deltaTime;
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.y = Input.GetAxisRaw("Vertical");
 
-            }
-            if ((Input.GetKey(KeyCode.S)) || (Input.GetKey(KeyCode.DownArrow)))
-            {
-                Pos.y -= Speed * Time.deltaTime;
-            }
+            movement.Normalize();
+
+            transform.position = new Vector2(transform.position.x + movement.x * Speed, transform.position.y + movement.y * Speed);
 
             if (Pos != transform.position)
             {
-                // get the angle
-
                 Vector3 norTar = (Pos - transform.position).normalized;
                 float angle = Mathf.Atan2(norTar.y, norTar.x) * Mathf.Rad2Deg;
 
                 // rotate to angle
 
                 Quaternion rotation = new Quaternion();
-                rotation.eulerAngles = new Vector3(0, 0, angle - 90);
+                rotation.eulerAngles = new Vector3(0, 0, angle + 90);
                 transform.rotation = rotation;
-            }
-       }       
 
-        transform.position = Pos;
+                Pos = transform.position;
+            }
+        }
     }
+
 }
