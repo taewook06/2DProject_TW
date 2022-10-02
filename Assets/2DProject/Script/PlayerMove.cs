@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerMove : MonoBehaviour
 {
     Vector3 Pos;
-    public float Speed = 0.01f;
+    public float Speed = 5f;
 
     Vector2 movement = new Vector2();
 
@@ -30,7 +30,7 @@ public class PlayerMove : MonoBehaviour
 
             movement.Normalize();
 
-            transform.position = new Vector2(transform.position.x + movement.x * Speed, transform.position.y + movement.y * Speed);
+            transform.position = new Vector2(transform.position.x + movement.x * Speed*0.001f, transform.position.y + movement.y * Speed * 0.001f);
 
             if (Pos != transform.position)
             {

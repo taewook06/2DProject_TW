@@ -43,15 +43,22 @@ public class Bullet : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (GameObject.Find("Btn").GetComponent<Button>().IsStart == true)
+        {
+           
+            if (collision.transform.tag == "Wall") //탄막이 벽에 닿았을 시
+            {
+                BulletOn = true; //총알활성화
+            }
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
         if (collision.transform.tag == "Player" && BulletOn == true) //탄막이 플레이어와 닿고, 총알이 활성화 됐다면
         {
             Destroy(player);
             GameObject.Find("Btn").GetComponent<Button>().IsStart = false;
             GameObject.Find("GameOver").GetComponent<Text>().text = "Game Over";
-        }
-        if (collision.transform.tag == "Wall") //탄막이 벽에 닿았을 시
-        {
-            BulletOn = true; //총알활성화
         }
     }
 }
