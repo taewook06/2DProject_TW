@@ -35,12 +35,16 @@ public class Bullet : MonoBehaviour
                 render.color = new Color(255, 255, 0, 255);
                 
 
-            }
-          
-            
+            }      
         }
+        
 
     }
+    void Istrigger()
+    {
+        GetComponent<CircleCollider2D>().isTrigger = false;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (GameObject.Find("Btn").GetComponent<Button>().IsStart == true)
@@ -50,6 +54,7 @@ public class Bullet : MonoBehaviour
             {
                 BulletOn = true; //ÃÑ¾ËÈ°¼ºÈ­
             }
+           
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -59,6 +64,14 @@ public class Bullet : MonoBehaviour
             Destroy(player);
             GameObject.Find("Btn").GetComponent<Button>().IsStart = false;
             GameObject.Find("GameOver").GetComponent<Text>().text = "Game Over";
+
+            if (collision.transform.tag == "Bullet")
+            {
+                GetComponent<CircleCollider2D>().isTrigger = true;
+                Invoke("Istrigger", 0.5f);
+            }
         }
+        
+           
     }
 }
