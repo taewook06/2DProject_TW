@@ -24,6 +24,7 @@ public class BulletMake : MonoBehaviour
                 Instantiate(BulletPrefab, transform.position, transform.rotation);   //(藕阜捞,措器部府俊, 部府规氢栏肺)
                 Score += 1;
                 GameObject.Find("Point").GetComponent<Text>().text = "Score: " + Score;
+              
             }
         }
 
