@@ -25,7 +25,7 @@ public class PlayerMove : MonoBehaviour
         if (GameObject.Find("Btn").GetComponent<Button>().IsStart == true)
         {
 
-            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.x = Input.GetAxisRaw("Horizontal");    
             movement.y = Input.GetAxisRaw("Vertical");
 
             movement.Normalize();

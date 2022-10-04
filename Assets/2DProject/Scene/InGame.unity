@@ -653,6 +653,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 3604140718222696610, guid: c133cc0cae914854f986997a7ccef350, type: 3}
   Score: 0
+  CoolTime: 0
 --- !u!1 &1133791127
 GameObject:
   m_ObjectHideFlags: 0
@@ -1464,6 +1465,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc953102414c04b48870026561ffcb3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UpOn: 0
+  DownOn: 0
+  LeftOn: 0
+  RightOn: 0
 --- !u!4 &1744843306
 Transform:
   m_ObjectHideFlags: 0
