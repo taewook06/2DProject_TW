@@ -11,20 +11,17 @@ public class BulletHit : MonoBehaviour
     public Bullet myBullet;
 
     private void Update()
-    {
-       
-             lastVelocity = rigid.velocity;
-      
+    {       
+             lastVelocity = rigid.velocity;      
     }
     private void OnCollisionEnter2D(Collision2D coll)
     {
-        if (GameObject.Find("Btn").GetComponent<Button>().IsStart == true)
-        {
+        
             var speed = lastVelocity.magnitude;
             var dir = Vector2.Reflect(lastVelocity.normalized, coll.contacts[0].normal);
 
             myBullet.Myvelocity = dir * Mathf.Max(speed, 0f);
-        }
+        
     }
 }
 

@@ -6,8 +6,7 @@ using UnityEngine.UI;
 public class PlayerMove : MonoBehaviour
 {
     Vector3 Pos;
-    public float Speed = 5f;
-    public bool WallCollider;
+    float Speed = 6f;   
     Vector2 movement = new Vector2();
 
     Rigidbody2D myRig;
@@ -16,16 +15,13 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         myRig = GetComponent<Rigidbody2D>();
-        Pos = transform.position;
-        WallCollider = GetComponent<BoxCollider2D>().isTrigger; //플레이어의 콜라이더 불러옴
+        Pos = transform.position;       
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (GameObject.Find("Btn").GetComponent<Button>().IsStart == true)
-        {
-
+       
             movement.x = Input.GetAxisRaw("Horizontal");    
             movement.y = Input.GetAxisRaw("Vertical");
 
@@ -46,7 +42,7 @@ public class PlayerMove : MonoBehaviour
 
                 Pos = transform.position;
             }
-        }
+        
     }
 
 }

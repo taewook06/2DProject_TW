@@ -19,25 +19,24 @@ public class BulletMake : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameObject.Find("Btn").GetComponent<Button>().IsStart == true)
-        {
+        
             if (Input.GetMouseButtonDown(0))
             {
                 if(CoolTime == true)
                 {
+                    gameObject.GetComponent<AudioSource>().Play();
                     GameObject bullet = Instantiate(BulletPrefab, transform.position, transform.rotation);   //(≈∫∏∑¿Ã,¥Î∆˜≤ø∏Æø°, ≤ø∏ÆπÊ«‚¿∏∑Œ)
                     bullet.GetComponent<Bullet>().Speed = BulletSpeed;
                     Score += 1;
                     CoolTime = false;                    
                     Invoke("Delay", 1.0f);                   
-                }
-                
+                }               
 
                 BulletSpeed += 0.001f;              
                 GameObject.Find("Point").GetComponent<Text>().text = "Score: " + Score;
               
             }
-        }       
+         
     }
     void Delay()
     {

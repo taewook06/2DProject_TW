@@ -14,64 +14,41 @@ public class Bullet : MonoBehaviour
     GameObject player;
     Rigidbody2D rgd;
     public Vector2 Myvelocity;
+       
     // Start is called before the first frame update
     void Start()
     {
         render = GetComponent<SpriteRenderer>();
         player = GameObject.Find("Player");
         rgd = GetComponent<Rigidbody2D>(); 
-        Myvelocity = transform.up * Speed * 100; 
+        Myvelocity = transform.up * Speed * 100;
+                
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (GameObject.Find("Btn").GetComponent<Button>().IsStart == true)
-        {
-            rgd.velocity = Myvelocity;
-            //  gameObject.transform.Translate(Vector3.down * Speed); //Speed값만큼 속도로 이동
-            if( BulletOn == true)
-            {
-                render.color = new Color(255, 255, 0, 255);
-                
-
-            }      
-        }
         
-
-    }
-    void Istrigger()
-    {
-        GetComponent<CircleCollider2D>().isTrigger = false;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (GameObject.Find("Btn").GetComponent<Button>().IsStart == true)
-        {
-           
-            if (collision.transform.tag == "Wall") //탄막이 벽에 닿았을 시
+            rgd.velocity = Myvelocity;
+            
+            if(this.gameObject.layer == 8)
             {
-                BulletOn = true; //총알활성화
-            }
-           
-        }
-    }
+                render.color = new Color(255, 255, 0, 255);          
+            }      
+            
+    }    
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.tag == "Player" && BulletOn == true) //탄막이 플레이어와 닿고, 총알이 활성화 됐다면
+        if (collision.transform.tag == "Player" && this.gameObject.layer == 8) //탄막이 플레이어와 닿고, 총알이 활성화 됐다면
         {
-            Destroy(player);
-            GameObject.Find("Btn").GetComponent<Button>().IsStart = false;
-            GameObject.Find("GameOver").GetComponent<Text>().text = "Game Over";
-
-           
-        }
-        if (collision.transform.tag == "Bullet")
+            GameObject.Find("DeadSound").GetComponent<AudioSource>().Play();
+            Destroy(player);           
+            GameObject.Find("GameOver").GetComponent<Text>().text = "Game Over";           
+        }    
+        if(collision.transform.tag == "Wall")
         {
-            GetComponent<CircleCollider2D>().isTrigger = true;
-            Invoke("Istrigger", 0.3f);
+            gameObject.GetComponent<AudioSource>().Play();
+            this.gameObject.layer = 8; //총알활성화
         }
-
     }
 }
