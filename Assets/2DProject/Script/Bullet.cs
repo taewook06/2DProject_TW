@@ -65,13 +65,13 @@ public class Bullet : MonoBehaviour
             GameObject.Find("Btn").GetComponent<Button>().IsStart = false;
             GameObject.Find("GameOver").GetComponent<Text>().text = "Game Over";
 
-            if (collision.transform.tag == "Bullet")
-            {
-                GetComponent<CircleCollider2D>().isTrigger = true;
-                Invoke("Istrigger", 0.5f);
-            }
-        }
-        
            
+        }
+        if (collision.transform.tag == "Bullet")
+        {
+            GetComponent<CircleCollider2D>().isTrigger = true;
+            Invoke("Istrigger", 0.3f);
+        }
+
     }
 }

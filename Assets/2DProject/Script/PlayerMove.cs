@@ -7,7 +7,7 @@ public class PlayerMove : MonoBehaviour
 {
     Vector3 Pos;
     public float Speed = 5f;
-
+    public bool WallCollider;
     Vector2 movement = new Vector2();
 
     Rigidbody2D myRig;
@@ -17,6 +17,7 @@ public class PlayerMove : MonoBehaviour
     {
         myRig = GetComponent<Rigidbody2D>();
         Pos = transform.position;
+        WallCollider = GetComponent<BoxCollider2D>().isTrigger; //플레이어의 콜라이더 불러옴
     }
 
     // Update is called once per frame

@@ -6,11 +6,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     GameObject player;
-
-    public bool UpOn;
-    public bool DownOn;
-    public bool LeftOn;
-    public bool RightOn;
+    bool WallCollide;
 
     float Px;
     float Py;
@@ -19,39 +15,25 @@ public class GameManager : MonoBehaviour
     void Start()
     {
        player = GameObject.Find("Player");
-
-        Px = GameObject.Find("Player").transform.position.x;
-        Py = GameObject.Find("Player").transform.position.y;
+       WallCollide = GameObject.Find("Player").GetComponent<PlayerMove>().WallCollider; //플레이어의 콜라이더
+               
     }
 
     // Update is called once per frame
     void Update()
-    {      
-        if(Px < -8.5 )
-        {
-            LeftOn = false;
-        }
-        else if(Px > -8.5 && Px < 8.5)
-        {
-            LeftOn  = true;
-        }
-
-        if(Px > 8.5)
-        {
-            RightOn = false;
-        }
-        else if(Px > -8.5 && Px < 8.5)
-        {
-            RightOn = true;
-        }
-
-        if (Py < -4.5)
-        {
-            DownOn = false;
-        }
-        else if (Py > 4.5)
-        {
-            UpOn = true;
-        }
+    {
+        Px = GameObject.Find("Player").transform.position.x;
+        Py = GameObject.Find("Player").transform.position.y;
+      
+       if(Px < -8.5 || Px > 8.5 || Py < -4.5 || Py > 4.5) //화면밖으로 나가기 직전
+       {
+            WallCollide = false; //플레이어와 벽 충돌 가능
+            Debug.Log("밖으로 나가기 직전");
+       }
+       else if (Px > -8.5 && Px < 8.5 && Py > -4.5 && Py < 4.5) //화면 안에 있을 때
+       {
+            WallCollide = true; //플레이어와 벽 충돌 불가능
+            Debug.Log("화면 안에 있음");
+       }
     }
 }
