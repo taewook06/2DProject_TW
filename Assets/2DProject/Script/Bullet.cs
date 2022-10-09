@@ -14,6 +14,8 @@ public class Bullet : MonoBehaviour
     GameObject player;
     Rigidbody2D rgd;
     public Vector2 Myvelocity;
+
+    public GameObject Over;
        
     // Start is called before the first frame update
     void Start()
@@ -42,8 +44,9 @@ public class Bullet : MonoBehaviour
         if (collision.transform.tag == "Player" && this.gameObject.layer == 8) //Åº¸·ÀÌ ÇÃ·¹ÀÌ¾î¿Í ´ê°í, ÃÑ¾ËÀÌ È°¼ºÈ­ µÆ´Ù¸é
         {
             GameObject.Find("DeadSound").GetComponent<AudioSource>().Play();
-            Destroy(player);           
-            GameObject.Find("GameOver").GetComponent<Text>().text = "Game Over";           
+            Destroy(player);
+            GameObject.Find("GameOver").GetComponent<Text>().text = "Game Over";
+            Instantiate(Over);
         }    
         if(collision.transform.tag == "Wall")
         {

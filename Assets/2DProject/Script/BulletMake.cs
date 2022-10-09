@@ -10,17 +10,21 @@ public class BulletMake : MonoBehaviour
     float BulletSpeed = 0.01f;
     public bool CoolTime;
 
+    bool ESC;
+
     // Start is called before the first frame update
     void Start()
     {
         CoolTime = true;
+        ESC = GameObject.Find("GameManager").GetComponent<GameManager>().escOn;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-            if (Input.GetMouseButtonDown(0))
+      
+
+        if (Input.GetMouseButtonDown(0) && ESC == false)
             {
                 if(CoolTime == true)
                 {

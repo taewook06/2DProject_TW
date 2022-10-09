@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
-public class BackBtn : MonoBehaviour
+public class Continue : MonoBehaviour
 {
-    public GameObject Main;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,8 +16,10 @@ public class BackBtn : MonoBehaviour
     {
         
     }
-    public void Back()
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Main");
+    public void ConBtn()
+    {    
+        Destroy(GameObject.Find("ESC(Clone)"));
+        GameObject.Find("GameManager").GetComponent<GameManager>().escOn = false;
+        Time.timeScale = 1;
     }
 }

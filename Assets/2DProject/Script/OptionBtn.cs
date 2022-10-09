@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class OptionBtn : MonoBehaviour
 {
-    public GameObject Option;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -17,9 +16,8 @@ public class OptionBtn : MonoBehaviour
     {
        
     }
-    public void Remove()
+    public void OptionButton()
     {
-        Destroy(GameObject.Find("MainCanvas"));
-        Instantiate(Option);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Option");
     }
 }

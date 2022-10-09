@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BackBtn : MonoBehaviour
+public class Main : MonoBehaviour
 {
-    public GameObject Main;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +15,7 @@ public class BackBtn : MonoBehaviour
     {
         
     }
-    public void Back()
+    public void MainButton()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("Main");
     }
