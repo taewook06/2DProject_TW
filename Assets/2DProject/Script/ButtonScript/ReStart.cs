@@ -19,5 +19,6 @@ public class ReStart : MonoBehaviour
     public void Restart()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("InGame");
+        Time.timeScale = 1;
     }
 }

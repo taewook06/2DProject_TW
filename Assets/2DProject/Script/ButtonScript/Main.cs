@@ -17,6 +17,8 @@ public class Main : MonoBehaviour
     }
     public void MainButton()
     {
+        Time.timeScale = 1;
         UnityEngine.SceneManagement.SceneManager.LoadScene("Main");
+
     }
 }
