@@ -33,7 +33,7 @@ public class Bullet : MonoBehaviour
         
             rgd.velocity = Myvelocity;
             
-            if(this.gameObject.layer == 8)
+            if(this.gameObject.layer == 8) 
             {
                 render.color = new Color(255, 255, 0, 255);          
             }      
@@ -41,7 +41,7 @@ public class Bullet : MonoBehaviour
     }    
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.tag == "Player" && this.gameObject.layer == 8) //탄막이 플레이어와 닿고, 총알이 활성화 됐다면
+        if (collision.transform.tag == "Player" && this.gameObject.layer == 8) //총알이 플레이어와 닿고, 총알이 활성화 됐다면
         {
             GameObject.Find("DeadSound").GetComponent<AudioSource>().Play();
             Destroy(player);
@@ -51,7 +51,7 @@ public class Bullet : MonoBehaviour
         if(collision.transform.tag == "Wall")
         {
             gameObject.GetComponent<AudioSource>().Play();
-            this.gameObject.layer = 8; //총알활성화
+            this.gameObject.layer = 8; //총알활성화 레아어
         }
     }
 }

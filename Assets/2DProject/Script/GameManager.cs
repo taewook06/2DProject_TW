@@ -19,8 +19,8 @@ public class GameManager : MonoBehaviour
     {                           
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            escOn = true;
-            Time.timeScale = 0;
+            escOn = true; //ESC Å° ÀÔ·Â Áß ÃÑ¾Ë»ý¼º X
+            Time.timeScale = 0; //½Ã°£¸ØÃã
             Instantiate(ESC);           
         }
     }

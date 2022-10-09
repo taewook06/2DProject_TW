@@ -11,6 +11,8 @@ public class PlayerMove : MonoBehaviour
 
     Rigidbody2D myRig;
 
+    bool ESC;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,13 +23,16 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-            movement.x = Input.GetAxisRaw("Horizontal");    
+        ESC = GameObject.Find("GameManager").GetComponent<GameManager>().escOn;
+
+        if (ESC == false) //ESC중 움직임 X
+        {
+            movement.x = Input.GetAxisRaw("Horizontal");  //수평이동 명령어  
             movement.y = Input.GetAxisRaw("Vertical");
 
-            movement.Normalize();
+            movement.Normalize(); //백터 정규화
 
-            transform.position = new Vector2(transform.position.x + movement.x * Speed*0.001f, transform.position.y + movement.y * Speed * 0.001f);
+            transform.position = new Vector2(transform.position.x + movement.x * Speed * 0.001f, transform.position.y + movement.y * Speed * 0.001f);
 
             if (Pos != transform.position)
             {
@@ -42,7 +47,6 @@ public class PlayerMove : MonoBehaviour
 
                 Pos = transform.position;
             }
-        
+        }
     }
-
 }

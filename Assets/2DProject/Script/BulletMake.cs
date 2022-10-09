@@ -21,10 +21,10 @@ public class BulletMake : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ESC = GameObject.Find("GameManager").GetComponent<GameManager>().escOn;
+        ESC = GameObject.Find("GameManager").GetComponent<GameManager>().escOn; 
 
-        if (Input.GetMouseButtonDown(0) && ESC == false)
-            {
+        if (Input.GetMouseButtonDown(0) && ESC == false) //ESC키를 눌렀을 때는 총알 생성 X
+        {
                 if(CoolTime == true)
                 {
                     gameObject.GetComponent<AudioSource>().Play();
