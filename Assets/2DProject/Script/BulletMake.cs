@@ -15,14 +15,13 @@ public class BulletMake : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CoolTime = true;
-        ESC = GameObject.Find("GameManager").GetComponent<GameManager>().escOn;
+        CoolTime = true;       
     }
 
     // Update is called once per frame
     void Update()
     {
-      
+        ESC = GameObject.Find("GameManager").GetComponent<GameManager>().escOn;
 
         if (Input.GetMouseButtonDown(0) && ESC == false)
             {
