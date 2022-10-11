@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerMove : MonoBehaviour
 {
     Vector3 Pos;
-    float Speed = 10f;   
+    float Speed = 25f;   
     Vector2 movement = new Vector2();
 
     Rigidbody2D myRig;
