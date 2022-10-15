@@ -38,7 +38,7 @@ public class BulletMake : MonoBehaviour
                 BulletSpeed += 0.001f;              
                 GameObject.Find("Point").GetComponent<Text>().text = "Score: " + Score;
               
-            }
+        }
          
     }
     void Delay()

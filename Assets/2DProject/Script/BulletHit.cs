@@ -12,8 +12,10 @@ public class BulletHit : MonoBehaviour
 
     private void Update()
     {       
-             lastVelocity = rigid.velocity;      
-    }
+             lastVelocity = rigid.velocity;
+            
+    } 
+   
     private void OnCollisionEnter2D(Collision2D coll)
     {
         

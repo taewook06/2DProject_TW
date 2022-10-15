@@ -36,8 +36,8 @@ public class Bullet : MonoBehaviour
             if(this.gameObject.layer == 8) 
             {
                 render.color = new Color(255, 255, 0, 255);          
-            }      
-            
+            }
+        
     }    
     private void OnTriggerEnter2D(Collider2D collision)
     {

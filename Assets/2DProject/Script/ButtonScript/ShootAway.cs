@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StartBtn : MonoBehaviour
+public class ShootAway : MonoBehaviour
 {
-   
     // Start is called before the first frame update
     void Start()
     {
@@ -16,9 +15,8 @@ public class StartBtn : MonoBehaviour
     {
         
     }
-    public void StartButton()
+     public void ShootAwayButton()
     {
-        
-        UnityEngine.SceneManagement.SceneManager.LoadScene("GameMode");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("InGame2");
     }
 }

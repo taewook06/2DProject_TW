@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerMove : MonoBehaviour
+public class PlayerMove2 : MonoBehaviour
 {
     Vector3 Pos;
     float Speed = 25f;
     Vector2 movement = new Vector2();
-
+    public bool Die;
     Rigidbody2D myRig;
 
-    bool ESC;
+   // bool ESC;
 
     // Start is called before the first frame update
     void Start()
     {
+        Die = false;
         myRig = GetComponent<Rigidbody2D>();
         Pos = transform.position;
     }
@@ -23,10 +24,8 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ESC = GameObject.Find("GameManager").GetComponent<GameManager>().escOn;
-
-        if (ESC == false) //ESC중 움직임 X
-        {
+       if(Die == false)
+       {
             movement.x = Input.GetAxisRaw("Horizontal");  //수평이동 명령어  
             movement.y = Input.GetAxisRaw("Vertical");
 
@@ -47,6 +46,8 @@ public class PlayerMove : MonoBehaviour
 
                 Pos = transform.position;
             }
-        }
+       }
+         
+      
     }
 }

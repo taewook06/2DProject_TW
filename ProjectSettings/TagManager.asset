@@ -7,6 +7,9 @@ TagManager:
   - Bullet
   - Wall
   - PlayerHitBox
+  - Enemy
+  - PlayerBullet
+  - EnemyHit
   layers:
   - Default
   - TransparentFX

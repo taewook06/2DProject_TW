@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StartBtn : MonoBehaviour
+public class EnemyHit : MonoBehaviour
 {
-   
     // Start is called before the first frame update
     void Start()
     {
@@ -16,9 +15,11 @@ public class StartBtn : MonoBehaviour
     {
         
     }
-    public void StartButton()
+     void OnTriggerEnter2D(Collider2D collision)
     {
-        
-        UnityEngine.SceneManagement.SceneManager.LoadScene("GameMode");
+        if (collision.tag == "PlayerBullet")
+        {
+            Destroy(gameObject);
+        }
     }
 }
