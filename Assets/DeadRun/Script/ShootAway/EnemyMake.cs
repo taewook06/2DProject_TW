@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyMake : MonoBehaviour
 {
     bool CoolTime;
     bool die;
     public GameObject EnemyPrefab;
+    int score = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +23,9 @@ public class EnemyMake : MonoBehaviour
         if (CoolTime == true)
         {
             //gameObject.GetComponent<AudioSource>().Play();
-            GameObject bullet = Instantiate(EnemyPrefab, transform.position, transform.rotation);   //(≈∫∏∑¿Ã,¥Î∆˜≤ø∏Æø°, ≤ø∏ÆπÊ«‚¿∏∑Œ)           
+            GameObject bullet = Instantiate(EnemyPrefab, transform.position, transform.rotation);   //(≈∫∏∑¿Ã,¥Î∆˜≤ø∏Æø°, ≤ø∏ÆπÊ«‚¿∏∑Œ)
+            score += 1;                                                                                        
+            GameObject.Find("Score").GetComponent<Text>().text = "Score: "+score;
             CoolTime = false;
             Invoke("Delay", 5.0f);
         }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHit : MonoBehaviour
+public class ContinueBtn2 : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -15,11 +15,10 @@ public class EnemyHit : MonoBehaviour
     {
         
     }
-     void OnTriggerEnter2D(Collider2D collision)
+    public void ConBtn2()
     {
-        if (collision.tag == "PlayerBullet")
-        {
-            Destroy(gameObject);
-        }
+        Destroy(GameObject.Find("ESC1(Clone)"));
+        GameObject.Find("GameManager").GetComponent<GameManager>().escOn = false;
+        Time.timeScale = 1;
     }
 }

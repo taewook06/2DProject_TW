@@ -9,15 +9,16 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6331634606776319019}
-  - component: {fileID: 1753435294683776593}
-  - component: {fileID: 6978623965814533137}
-  - component: {fileID: 8368063544201569646}
-  - component: {fileID: 764047945592197992}
-  - component: {fileID: 763283637426066117}
-  - component: {fileID: -1333552634233231321}
+  - component: {fileID: 7677943929455555513}
+  - component: {fileID: 5093467657445829397}
+  - component: {fileID: 6875298429997606226}
+  - component: {fileID: 1927046719665494877}
+  - component: {fileID: 9070449904011779524}
+  - component: {fileID: 3216855509472669896}
+  - component: {fileID: 3729352262565722544}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,16 +30,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 909315329855492669}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.86, y: -0.5480444, z: -0.0019860936}
+  m_LocalScale: {x: 0.29999998, y: 0.29999998, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1371627223091504943}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1753435294683776593
+--- !u!212 &7677943929455555513
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,7 +91,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &6978623965814533137
+--- !u!61 &5093467657445829397
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,7 +117,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.543099}
   m_EdgeRadius: 0
---- !u!50 &8368063544201569646
+--- !u!50 &6875298429997606226
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -137,7 +138,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &764047945592197992
+--- !u!114 &1927046719665494877
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,7 +154,7 @@ MonoBehaviour:
   BulletOn: 0
   EnemyBulletPrefab: {fileID: 757949220069436774, guid: dcbcf527302b6494da4877078e31bfed, type: 3}
   CoolTime: 0
---- !u!58 &763283637426066117
+--- !u!58 &9070449904011779524
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,7 +170,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 15
---- !u!82 &-1333552634233231321
+--- !u!82 &3216855509472669896
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -265,6 +266,39 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!215 &3729352262565722544
+ReflectionProbe:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909315329855492669}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Type: 0
+  m_Mode: 0
+  m_RefreshMode: 0
+  m_TimeSlicingMode: 0
+  m_Resolution: 128
+  m_UpdateFrequency: 0
+  m_BoxSize: {x: 10, y: 10, z: 10}
+  m_BoxOffset: {x: 0, y: 0, z: 0}
+  m_NearClip: 0.3
+  m_FarClip: 1000
+  m_ShadowDistance: 100
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IntensityMultiplier: 1
+  m_BlendDistance: 1
+  m_HDR: 1
+  m_BoxProjection: 0
+  m_RenderDynamicObjects: 0
+  m_UseOcclusionCulling: 1
+  m_Importance: 1
+  m_CustomBakedTexture: {fileID: 0}
 --- !u!1 &5650073315083777416
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,7 +309,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1371627223091504943}
   - component: {fileID: 3624785157399328273}
-  - component: {fileID: 1856817215029483491}
+  - component: {fileID: 1490988520757971750}
   m_Layer: 0
   m_Name: Tail
   m_TagString: EnemyHit
@@ -350,7 +384,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &1856817215029483491
+--- !u!61 &1490988520757971750
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -360,10 +394,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.01640737, y: -0.6070461}
+  m_Offset: {x: -0.020482779, y: -0.53586566}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -374,5 +408,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.8703597, y: 2.2140923}
+  m_Size: {x: 3.9354262, y: 2.8478875}
   m_EdgeRadius: 0
