@@ -22,7 +22,8 @@ public class PlayerBullet : MonoBehaviour
      {
         if (other.gameObject.tag == "EnemyHit")
         {
-            Destroy(other.transform.parent);
+            Destroy(other.transform.parent.gameObject);
+            gameObject.GetComponent<AudioSource>().Play();
         }
      }
 }

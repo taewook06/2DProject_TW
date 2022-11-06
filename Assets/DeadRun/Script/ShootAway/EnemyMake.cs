@@ -7,8 +7,8 @@ public class EnemyMake : MonoBehaviour
 {
     bool CoolTime;
     bool die;
-    public GameObject EnemyPrefab;
-    int score = 0;
+    public GameObject EnemyPrefab;    
+    float Level = 5f;
 
     // Start is called before the first frame update
     void Start()
@@ -24,10 +24,14 @@ public class EnemyMake : MonoBehaviour
         {
             //gameObject.GetComponent<AudioSource>().Play();
             GameObject bullet = Instantiate(EnemyPrefab, transform.position, transform.rotation);   //(≈∫∏∑¿Ã,¥Î∆˜≤ø∏Æø°, ≤ø∏ÆπÊ«‚¿∏∑Œ)
-            score += 1;                                                                                        
-            GameObject.Find("Score").GetComponent<Text>().text = "Score: "+score;
+            GameObject.Find("Twotank").GetComponent<TwoTank>().score += 1;                                                                                     
             CoolTime = false;
-            Invoke("Delay", 5.0f);
+            Invoke("Delay", Level);
+            Level -= 0.25f;
+            if(Level == 0f)
+            {
+                Level += 0.25f;
+            }
         }
     }
     void Delay()
