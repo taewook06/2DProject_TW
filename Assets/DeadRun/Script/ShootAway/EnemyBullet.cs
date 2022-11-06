@@ -15,7 +15,7 @@ public class EnemyBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.Translate(Vector3.down * -0.03f);
+        gameObject.transform.Translate(Vector3.down * -0.04f);
         Destroy(gameObject, 3f);
     }
     

@@ -27,10 +27,10 @@ public class EnemyMake : MonoBehaviour
             GameObject.Find("Twotank").GetComponent<TwoTank>().score += 1;                                                                                     
             CoolTime = false;
             Invoke("Delay", Level);
-            Level -= 0.25f;
-            if(Level == 0f)
+            Level -= 0.5f;
+            if(Level == 0.5f)
             {
-                Level += 0.25f;
+                Level += 0.5f;
             }
         }
     }
