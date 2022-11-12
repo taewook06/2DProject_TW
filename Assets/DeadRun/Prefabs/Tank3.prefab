@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 5664757713151293186}
   - component: {fileID: 5664757713151293185}
   m_Layer: 0
-  m_Name: Background (1)
+  m_Name: Tank3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -292,8 +292,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5664757713151293184}
-  m_LocalRotation: {x: -0, y: -0, z: -0.92489785, w: -0.38021585}
-  m_LocalPosition: {x: 8.028049, y: 4.3891726, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -9.02, y: -0.01, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -302,7 +302,7 @@ Transform:
   - {fileID: 5664757712470409766}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -224.694}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!212 &5664757713151293186
 SpriteRenderer:
   m_ObjectHideFlags: 0

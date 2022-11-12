@@ -24,13 +24,13 @@ public class EnemyMake : MonoBehaviour
         {
             //gameObject.GetComponent<AudioSource>().Play();
             GameObject bullet = Instantiate(EnemyPrefab, transform.position, transform.rotation);   //(≈∫∏∑¿Ã,¥Î∆˜≤ø∏Æø°, ≤ø∏ÆπÊ«‚¿∏∑Œ)
-            GameObject.Find("Twotank").GetComponent<TwoTank>().score += 1;                                                                                     
+            GameObject.Find("tankSpawner").GetComponent<TwoTank>().score += 1;                                                                                     
             CoolTime = false;
             Invoke("Delay", Level);
-            Level -= 0.5f;
-            if(Level == 0.5f)
+            Level -= 0.2f;
+            if(Level <= 2.8f)
             {
-                Level += 0.5f;
+                Level = 2.8f;
             }
         }
     }

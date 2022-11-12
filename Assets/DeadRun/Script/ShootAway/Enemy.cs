@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour
             GameObject bullet = Instantiate(EnemyBulletPrefab,transform.position, transform.rotation);   //(藕阜捞,措器部府俊, 部府规氢栏肺)
             gameObject.GetComponent<AudioSource>().Play();
             CoolTime = false;
-            Invoke("Delay", 1.0f);
+            Invoke("Delay", 1.5f);
         }
     }
     void Delay()

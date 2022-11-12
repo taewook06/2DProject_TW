@@ -10,6 +10,7 @@ public class PlayerMove2 : MonoBehaviour
     Vector2 movement = new Vector2();
     public bool Die;
     Rigidbody2D myRig;
+    bool ESC;
 
    // bool ESC;
 
@@ -19,12 +20,14 @@ public class PlayerMove2 : MonoBehaviour
         Die = false;
         myRig = GetComponent<Rigidbody2D>();
         Pos = transform.position;
+      
     }
 
     // Update is called once per frame
     void Update()
     {
-       if(Die == false)
+        ESC = GameObject.Find("GameManager").GetComponent<GameManager>().escOn;
+        if (Die == false && ESC == false)
        {
             movement.x = Input.GetAxisRaw("Horizontal");  //수평이동 명령어  
             movement.y = Input.GetAxisRaw("Vertical");

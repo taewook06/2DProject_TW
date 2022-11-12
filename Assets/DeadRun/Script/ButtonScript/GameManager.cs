@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject ESC;
     public bool escOn;
+    bool ManyEsc;
    
     // Start is called before the first frame update
     void Start()
@@ -16,8 +17,9 @@ public class GameManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {                           
-        if (Input.GetKeyDown(KeyCode.Escape))
+    {
+        ManyEsc = escOn;
+        if (Input.GetKeyDown(KeyCode.Escape) && ManyEsc == false)
         {
             escOn = true; //ESC Å° ÀÔ·Â Áß ÃÑ¾Ë»ý¼º X
             Time.timeScale = 0; //½Ã°£¸ØÃã

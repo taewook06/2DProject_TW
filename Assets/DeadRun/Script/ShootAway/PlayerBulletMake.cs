@@ -7,18 +7,21 @@ public class PlayerBulletMake : MonoBehaviour
     public GameObject PlayerBulletPrefab;
     bool CoolTime;
     bool die;
+    bool ESC;
 
     // Start is called before the first frame update
     void Start()
     {
         CoolTime = true;
         die = GameObject.Find("Player").GetComponent<PlayerMove2>().Die;
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && die == false)  //ESC키를 눌렀을 때는 총알 생성 X
+        ESC = GameObject.Find("GameManager").GetComponent<GameManager>().escOn;
+        if (Input.GetMouseButtonDown(0) && die == false && ESC == false)  //ESC키를 눌렀을 때는 총알 생성 X
         {
             if (CoolTime == true)
             {

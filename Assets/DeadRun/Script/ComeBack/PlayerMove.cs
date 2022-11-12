@@ -18,6 +18,7 @@ public class PlayerMove : MonoBehaviour
     {
         myRig = GetComponent<Rigidbody2D>();
         Pos = transform.position;
+        
     }
 
     // Update is called once per frame
